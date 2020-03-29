@@ -18,14 +18,14 @@ class PlansController < ApplicationController
     if @plan.save
       redirect_to plans_path, notice: '登録しました'
     else
-      render 'new'
+      render :new
     end
   end
 
   def destroy
     @plan = current_user.plans.find(params[:id])
     @plan.destroy
-    redirect_to plan_path, notice: '削除しました'
+    redirect_to plans_path, notice: '削除しました'
   end
 
   def edit
@@ -44,6 +44,6 @@ class PlansController < ApplicationController
   private
 
   def plan_params
-    params.permit(:title, :content, :start_time)
+    params.require(:plan).permit(:title, :content, :start_time)
   end
 end
