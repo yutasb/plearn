@@ -8,13 +8,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to plans_path, notice: 'アカウント登録しました'
+      redirect_to login_path, notice: 'アカウント登録完了しました。ログインしてください'
     else
       render 'new'
     end
   end
-
-  
 
   private
 

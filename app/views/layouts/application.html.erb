@@ -17,6 +17,8 @@
     <ul class="navbar-nav mr-auto">
     </ul>
     <% if current_user%>
+      <%= "ようこそ、#{current_user.name}　さん" %>
+      <%= link_to 'マイページ', plans_path, class:'nav-link'%>
       <%= link_to 'ログアウト', logout_path, class:'nav-link', method: :delete%>
     <% else%>
       <%= link_to '新規登録', users_new_path, class:'nav-link'%>

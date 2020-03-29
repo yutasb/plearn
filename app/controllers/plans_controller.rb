@@ -2,7 +2,7 @@
 
 class PlansController < ApplicationController
   def index
-    @plans = Plan.all
+    @plans = current_user.plans
   end
 
   def new
@@ -10,11 +10,11 @@ class PlansController < ApplicationController
   end
 
   def show
-    @plan = Plan.find(params[:id])
+    @plan = current_user.plans.find(params[:id])
   end
 
   def create
-    @plan = Plan.create(plan_parameter)
+    @plan = current_user.plans.new(plan_params)
     if @plan.save
       redirect_to plans_path, notice: '登録しました'
     else
@@ -23,18 +23,18 @@ class PlansController < ApplicationController
   end
 
   def destroy
-    @plan = Plan.find(params[:id])
+    @plan = current_user.plans.find(params[:id])
     @plan.destroy
     redirect_to plan_path, notice: '削除しました'
   end
 
   def edit
-    @plan = Plan.find(params[:id])
+    @plan = current_user.plans.find(params[:id])
   end
 
   def update
-    @plan = Plan.find(params[:id])
-    if @plan.update(plan_parameter)
+    @plan = current_user.plans.find(params[:id])
+    if @plan.update(plan_params)
       redirect_to plans_path, notice: '更新しました'
     else
       render 'edit'
@@ -43,7 +43,7 @@ class PlansController < ApplicationController
 
   private
 
-  def plan_parameter
-    params.require(:plan).permit(:title, :content, :start_time)
+  def plan_params
+    params.permit(:title, :content, :start_time)
   end
 end
