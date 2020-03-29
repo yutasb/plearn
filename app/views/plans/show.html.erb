@@ -16,4 +16,7 @@
 </p>
 
 <%= link_to 'Edit', edit_plan_path(@plan) %> |
+<%= link_to 'Delete', plan_path(@plan), method: :delete, data:{confirm: 'Are you sure?'} %> |
+
+
 <%= link_to 'Back', plans_path %>

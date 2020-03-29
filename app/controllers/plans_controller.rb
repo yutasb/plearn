@@ -15,8 +15,11 @@ class PlansController < ApplicationController
 
   def create
     @plan = Plan.create(plan_parameter)
-    @plan.save
-    redirect_to plans_path, notice: '登録しました'
+    if @plan.save
+      redirect_to plans_path, notice: '登録しました'
+    else
+      render 'new'
+    end
   end
 
   def destroy

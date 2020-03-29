@@ -1,23 +1,8 @@
-<%= form_with(model: @plan, local: true) do |form| %>
 
-  <div class="title">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+    <h1>新規登録</h1>
 
-    <div class="time">
-    <%= form.label :start_time %>
-    <%= form.datetime_select :start_time %>
-  </div>
+    <%= render "form", plan: @plan%>
 
-  <div class="content">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
-  </div>
+    <br>
+    <%= link_to 'Back', plans_path %>
 
-
-  <div class="submit">
-    <%= form.submit %>
-  </div>
-
-<% end %>

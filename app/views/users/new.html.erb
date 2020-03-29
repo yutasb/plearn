@@ -1,0 +1,40 @@
+<h1>新規登録</h1>
+
+<%= form_with  local: true do |form| %>
+<% if @user.errors.any? %>
+    <div id='error_explanation'>
+        <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+
+
+  <div class="name">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="email">
+    <%= form.label :email %>
+    <%= form.text_field :email, class: 'form-control' %>
+  </div>
+
+
+  <div class="password">
+    <%= form.label :password %>
+    <%= form.password_field :password, class: 'form-control' %>
+  </div>
+
+  <div class="password_confirmation">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation, class: 'form-control' %>
+  </div>
+<br>
+  <div class="submit">
+    <%= form.submit '登録する', class: 'btn btn-primary' %>
+  </div>
+
+<% end %>
