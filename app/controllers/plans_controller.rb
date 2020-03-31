@@ -3,10 +3,12 @@
 class PlansController < ApplicationController
   def index
     @plans = current_user.plans
+    @detailplan = Activity.find_by(id: 2)
   end
 
   def new
     @plan = Plan.new
+    @plans = current_user.id
   end
 
   def show
@@ -16,7 +18,7 @@ class PlansController < ApplicationController
   def create
     @plan = current_user.plans.new(plan_params)
     if @plan.save
-      redirect_to plans_path, notice: '登録しました'
+      redirect_to activity_plans_path, notice: '登録しました'
     else
       render :new
     end
@@ -44,6 +46,6 @@ class PlansController < ApplicationController
   private
 
   def plan_params
-    params.require(:plan).permit(:title, :content, :start_time)
+    params.permit(:title, :content, :start_time, :activity_id)
   end
 end

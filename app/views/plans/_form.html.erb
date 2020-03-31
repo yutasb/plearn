@@ -1,4 +1,4 @@
-<%= form_with(model: @plan, local: true) do |form| %>
+<%= form_with local: true do |form| %>
 <% if @plan.errors.any? %>
     <div id='error_explanation'>
         <ul>
@@ -24,6 +24,8 @@
     <%= form.label :content %>
     <%= form.text_area :content %>
   </div>
+
+  
 
 
   <div class="submit">

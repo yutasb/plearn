@@ -3,9 +3,13 @@
 
 <h1>Study Plan</h1>
 
+<%= @plans.each do |plan|%>
+<%= plan.activity_id %>
+<% end %>
+
 <br>
 <button class='btn btn-primary fcWhite'>
-<%= link_to '新規登録', new_plan_path%>
+<%= link_to '新規登録', new_activity_plan_path %>
 
 </button>
 
@@ -15,7 +19,7 @@
 
   <% plans.each do |plan| %>
     <div>
-      <%= link_to plan.title, plan %>
+      <%= link_to plan.title, activity_plan_path(@detailplan,@detailplan) %>
     </div>
   <% end %>
   
