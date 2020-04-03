@@ -27,9 +27,10 @@ class PlansController < ApplicationController
   end
 
   def destroy
+    @activity = Activity.find(params[:activity_id])
     @plan = current_user.plans.find(params[:id])
     @plan.destroy
-    redirect_to activity_path, notice: '削除しました'
+    redirect_to activity_path(@activity), notice: '削除しました'
   end
 
   def edit
