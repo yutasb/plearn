@@ -3,10 +3,12 @@
 class ActivitiesController < ApplicationController
   def index
     @activities = Activity.where(user_id: current_user.id)
-    @plans = Activity.find_by(id: 2)
   end
 
-  def show; end
+  def show
+    @plans = current_user.plans.where(activity_id: params[:id])
+    @activity = Activity.find(params[:id])
+  end
 
   def new
     @activity = Activity.new

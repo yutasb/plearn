@@ -3,7 +3,11 @@
 class PlansController < ApplicationController
   def index
     @plans = current_user.plans
-    @detailplan = Activity.find_by(id: 2)
+    @activity = Activity.find(params[:activity_id])
+  end
+
+  def show
+    @plan = current_user.plans.find(params[:id])
   end
 
   def new
@@ -11,14 +15,11 @@ class PlansController < ApplicationController
     @plans = current_user.id
   end
 
-  def show
-    @plan = current_user.plans.find(params[:id])
-  end
-
   def create
+    @activity = Activity.find(params[:activity_id])
     @plan = current_user.plans.new(plan_params)
     if @plan.save
-      redirect_to activity_plans_path, notice: '登録しました'
+      redirect_to activity_path(@activity), notice: '登録しました'
     else
       render :new
     end
