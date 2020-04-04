@@ -1,2 +1,5 @@
-<h1>Activities#edit</h1>
-<p>Find me in app/views/activities/edit.html.erb</p>
+<h1>編集</h1>
+
+<%= render 'form', activity: @activity%>
+<br>
+<%= link_to '削除する', activity_path, method: :delete, data:{confirm: '削除してよろしいですか？'}, class: 'btn btn-danger'%>

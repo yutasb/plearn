@@ -1,2 +1,24 @@
-<h1>Activities#show</h1>
-<p>Find me in app/views/activities/show.html.erb</p>
+
+
+
+<h1>Study Plan</h1>
+
+<br>
+<button class='btn btn-primary fcWhite'>
+<%= link_to '新規登録', new_activity_plan_path(@activity) %>
+</button>
+
+<%= link_to 'Back', activities_path%>
+
+<%= month_calendar events: @plans do |date, plans| %>
+  <%= date.day %>
+
+  <% plans.each do |plan| %>
+    <div>
+      <%= link_to plan.title, activity_plan_path(@activity,plan) %>
+    </div>
+  <% end %>
+  
+<% end %>
+
+

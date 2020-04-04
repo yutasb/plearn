@@ -1,8 +1,42 @@
 <h1>プラン編集</h1>
 
-<%= render "form", plan: @plan%>
+<%= form_with model: @plan, url: activity_plan_path, method: :patch, local: true do |form| %>
+<% if @plan.errors.any? %>
+    <div id='error_explanation'>
+        <ul>
+            <% @plan.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+
+
+  <div class="title">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+    <div class="time">
+    <%= form.label :start_time %>
+    <%= form.datetime_select :start_time %>
+  </div>
+
+  <div class="content">
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+
+  
+
+
+  <div class="submit">
+    <%= form.submit %>
+  </div>
+
+<% end %>
 <br>
-<%= link_to 'Back', plans_path %>
+<%= link_to 'Back', activity_path %>
 
 
 
