@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: session_params[:email])
     if @user&.authenticate(session_params[:password])
       session[:user_id] = @user.id
-      redirect_to plans_path, notice: 'ログインしました'
+      redirect_to activities_path, notice: 'ログインしました'
     else
       render 'new'
     end

@@ -1,0 +1,13 @@
+<h1>マイページ</h1>
+<%= link_to '新規登録', new_activity_path, class:'btn btn-primary' %>
+
+<%= @activities.each do |activity|%>
+<%= activity.id %>
+<% end %>
+
+
+<br><br>
+<h4>一覧</h4>
+<% @activities.each do |activity|%>
+    <%= link_to "#{activity.title}", activity_plans_path(@plans) %> <br>
+<% end%>

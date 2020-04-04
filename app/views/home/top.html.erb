@@ -18,7 +18,7 @@
             </ul>
             <% if current_user%>
                 <%= "ようこそ、#{current_user.name}　さん" %>
-                <%= link_to 'マイページ', plans_path, class:'nav-link'%>
+                <%= link_to 'マイページ', activities_path, class:'nav-link'%>
                 <%= link_to 'ログアウト', logout_path, class:'nav-link', method: :delete%>
             <% else%>
                 <%= link_to '新規登録', users_new_path, class:'nav-link'%>
@@ -32,6 +32,7 @@
         <h1 class='topTitle'>Plearn</h1>
         <h5 class='subTitle'>学びの計画を立てよう</h5>
     </div>
+    
         
     
   </body>

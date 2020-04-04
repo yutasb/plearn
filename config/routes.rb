@@ -9,5 +9,9 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   root 'home#top'
-  resources :plans
+
+  resources :activities do
+    resources :plans
+  end
+  post '/activities/:activity_id/plans/new', to: 'plans#create', as: 'create_activity_plan'
 end
