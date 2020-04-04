@@ -39,8 +39,9 @@ class PlansController < ApplicationController
 
   def update
     @plan = current_user.plans.find(params[:id])
-    if @plan.update(plan_params)
-      redirect_to plans_path, notice: '更新しました'
+    @activity = Activity.find(params[:activity_id])
+    if @plan.update!(plan_params)
+      redirect_to activity_plan_path(@activity), notice: '更新しました'
     else
       render 'edit'
     end

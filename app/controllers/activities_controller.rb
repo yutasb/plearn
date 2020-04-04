@@ -23,20 +23,28 @@ class ActivitiesController < ApplicationController
     end
   end
 
+  def edit
+    @activity = Activity.find(params[:id])
+  end
+
   def update
-    @plan = current_user.plans.find(params[:id])
-    if @plan.update(activity_params)
-      redirect_to activity_path, notice: '更新しました'
+    @activity = current_user.activities.find(params[:id])
+    if @activity.update(activity_params)
+      redirect_to activities_path(@activity), notice: '更新しました'
     else
       render 'edit'
     end
   end
 
-  def edit; end
+  def destroy
+    @activity = Activity.find(params[:id])
+    @activity.destroy
+    redirect_to activities_path, notice: '削除しました'
+  end
 
   private
 
   def activity_params
-    params.permit(:title)
+    params.require(:activity).permit(:title)
   end
 end
