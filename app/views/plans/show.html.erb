@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
   <strong>タイトル</strong>
@@ -15,5 +15,8 @@
   <%= @plan.content %>
 </p>
 
-<%= link_to 'Edit', edit_plan_path(@plan) %> |
-<%= link_to 'Back', plans_path %>
+<%= link_to 'Edit', edit_activity_plan_path(@activity) %> |
+<%= link_to 'Delete', activity_plan_path(@activity), method: :delete, data:{confirm: 'Are you sure?'} %> |
+
+
+<%= link_to 'Back', activity_path(@activity) %>

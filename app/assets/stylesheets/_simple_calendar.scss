@@ -1,26 +1,8 @@
-button {
-  a {
-    color: white !important;
-  }
-}
-
 .simple-calendar {
-  .calendar-heading {
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-  .calendar-title {
-    font-size: 30px;
-  }
-
-  thead {
-    background: skyblue;
-  }
   .day {
   }
 
   .wday-0 {
-    color: red !important;
   }
   .wday-1 {
   }
@@ -33,7 +15,6 @@ button {
   .wday-5 {
   }
   .wday-6 {
-    color: blue !important;
   }
 
   .today {

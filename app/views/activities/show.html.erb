@@ -1,0 +1,25 @@
+<div class='back'>
+<%= link_to '<<カレンダー一覧に戻る', activities_path%>
+</div>
+
+<h1><%= @activity.title %>　Plan</h1>
+
+<br>
+<button class='btn btn-primary fcWhite'>
+<%= link_to '計画登録', new_activity_plan_path(@activity) %>
+</button>
+
+
+
+<%= month_calendar events: @plans do |date, plans| %>
+  <%= date.day %>
+
+  <% plans.each do |plan| %>
+    <div>      
+      <%= link_to plan.title, activity_plan_path(@activity,plan)%>
+    </div>
+  <% end %>
+  
+<% end %>
+
+

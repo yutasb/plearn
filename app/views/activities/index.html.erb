@@ -1,0 +1,18 @@
+
+<h1>マイページ　　　　　　　
+<%= link_to 'カレンダー新規登録', new_activity_path, class:'btn btn-primary' %>
+</h1>
+
+
+<div class="card mt40 w50 mcenter">
+<h4 class='card-header'>カレンダー 一覧</h4>
+  <ul class="list-group list-group-flush center">
+  <% @activities.each do |activity|%>
+    <li class="list-group-item">
+        <%= link_to "#{activity.title}", activity_path(activity), class:'center fs20' %> 
+        <%= link_to '編集', edit_activity_path(activity), class:'btn btn-warning w80' %>
+        
+    </li>
+    <% end%>
+  </ul>
+</div>
