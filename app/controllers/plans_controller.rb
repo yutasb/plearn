@@ -22,6 +22,7 @@ class PlansController < ApplicationController
     if @plan.save
       redirect_to activity_path(@activity), notice: '登録しました'
     else
+      flash.now[:alert] = 'タイトルと内容を入力してください'
       render :new
     end
   end
@@ -50,6 +51,6 @@ class PlansController < ApplicationController
   private
 
   def plan_params
-    params.permit(:title, :content, :start_time, :activity_id)
+    params.require(:plan).permit(:title, :content, :start_time, :activity_id)
   end
 end

@@ -27,8 +27,13 @@
   </div>
 </nav>
   </div>
+    <div class='notifications'>
+      <% flash.each do |key,value|%>
+        <%= content_tag(:div,value, class:key)%>
+      <%end%>
+    </div>
     <div class='container'>
-      <p id="notice"><%= notice %></p>
+      
     
       <%= yield %>
     </div>

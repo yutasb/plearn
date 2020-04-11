@@ -1,4 +1,4 @@
-<%= form_with local: true do |form| %>
+<%= form_with model: @plan, url: activity_plans_path, local: true do |form| %>
 <% if @plan.errors.any? %>
     <div id='error_explanation'>
         <ul>
@@ -24,12 +24,9 @@
     <%= form.label :content %>
     <%= form.text_area :content %>
   </div>
-
   
-
-
   <div class="submit">
-    <%= form.submit %>
+    <%= form.submit '登録する',  class: 'btn btn-primary' %>
   </div>
 
 <% end %>

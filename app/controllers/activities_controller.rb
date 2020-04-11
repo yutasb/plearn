@@ -19,6 +19,7 @@ class ActivitiesController < ApplicationController
     if @activity.save
       redirect_to activities_path, notice: '登録しました'
     else
+      flash.now[:alert] = 'タイトルを入力してください'
       render :new
     end
   end
@@ -32,6 +33,7 @@ class ActivitiesController < ApplicationController
     if @activity.update(activity_params)
       redirect_to activities_path(@activity), notice: '更新しました'
     else
+      flash.now[:alert] = 'タイトルを入力してください'
       render 'edit'
     end
   end

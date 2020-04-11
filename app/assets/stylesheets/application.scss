@@ -36,3 +36,16 @@
 .w50 {
   width: 50%;
 }
+.notifications {
+  color: $white;
+  text-align: center;
+
+  .notice {
+    background-color: lightBlue;
+    height: 35px;
+  }
+
+  .alert {
+    background-color: red;
+  }
+}

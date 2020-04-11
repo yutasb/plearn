@@ -26,13 +26,17 @@
             <% end%>
         </div>
     </nav>
-    
+    <div class='notifications'>
+      <% flash.each do |key,value|%>
+        <%= content_tag(:div,value, class:key)%>
+      <%end%>
+    </div>
     <%= image_tag 'head.png' %>
     <div>
         <h1 class='topTitle'>Plearn</h1>
         <h5 class='subTitle'>学びの計画を立てよう</h5>
     </div>
-    
+      
         
     
   </body>

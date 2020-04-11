@@ -23,6 +23,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to activities_path, notice: '更新しました'
     else
+      flash.now[:alert] = 'ユーザー名、メールアドレスを入力してください'
       render 'edit'
     end
   end
