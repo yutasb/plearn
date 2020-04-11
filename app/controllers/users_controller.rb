@@ -14,9 +14,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(current_user.id)
+  end
+
+  def update
+    @user = User.find(current_user.id)
+    if @user.update(user_params)
+      redirect_to activities_path, notice: '更新しました'
+    else
+      render 'edit'
+    end
+  end
+
   private
 
   def user_params
-    params.permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 end

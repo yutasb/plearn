@@ -55,3 +55,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'bootstrap'
 gem 'simple_calendar'
+gem 'rspec-rails', '~> 4.0'
+gem 'factory_bot_rails','~> 4.11'
