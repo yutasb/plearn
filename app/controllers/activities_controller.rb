@@ -2,7 +2,7 @@
 
 class ActivitiesController < ApplicationController
   def index
-    @activities = Activity.where(user_id: current_user.id)
+    @activities = Activity.where(user_id: current_user.id).search(params[:search])
   end
 
   def show

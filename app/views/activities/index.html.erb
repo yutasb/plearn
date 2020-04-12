@@ -3,8 +3,12 @@
 <%= link_to 'カレンダー新規登録', new_activity_path, class:'btn btn-primary' %>
 
 </h1>
-<%= link_to 'プロフィール編集', users_edit_path%>
+<%= link_to 'プロフィール編集', users_edit_path%>　　　　　　　　
 
+<%= form_with  method: :get, local: true do |form| %>
+  <%= form.text_field :search %>
+  <%= form.submit '検索する', class:'btn btn-primary'%>
+<% end %>
 
 <div class="card mt40 w50 mcenter">
 <h4 class='card-header'>カレンダー 一覧</h4>
