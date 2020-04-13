@@ -11,6 +11,7 @@ class ActivitiesController < ApplicationController
   def show
     @plans = current_user.plans.where(activity_id: params[:id])
     @activity = Activity.find(params[:id])
+
   end
 
   def new

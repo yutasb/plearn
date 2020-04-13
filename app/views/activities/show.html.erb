@@ -13,9 +13,17 @@
   <%= date.day %>
 
   <% plans.each do |plan| %>
-    <div>      
-      <%= link_to plan.title, activity_plan_path(@activity,plan)%>
-    </div>
+    <% if plan.done_plan(plan)%>
+    <%# done_flgがtrueのplanを抽出 %>
+      <div>
+        <%= link_to plan.title, activity_plan_path(@activity,plan), class:'donePlan'%>
+      </div>
+    <% else%>
+    <%# done_flgがfalseのplanを抽出 %>
+      <div>
+        <%= link_to plan.title, activity_plan_path(@activity,plan) %>
+      </div>
+    <% end%>
   <% end %>
   
 <% end %>
