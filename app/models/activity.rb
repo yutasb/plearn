@@ -12,7 +12,9 @@ class Activity < ApplicationRecord
     end
   end
 
-  
+  def done_plan(plan)
+    plans.find_by(done_flg: true)
+  end
 
   validates :title, presence: true
 end

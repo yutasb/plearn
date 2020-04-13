@@ -15,6 +15,7 @@
   <ul class="list-group list-group-flush center">
   <% @activities.each do |activity|%>
     <li class="list-group-item">
+    
         <%= link_to "#{activity.title}", activity_path(activity), class:'center fs20' %> 
         <%= link_to '編集', edit_activity_path(activity), class:'btn btn-warning w80' %>
         

@@ -15,6 +15,12 @@
   <%= @plan.content %>
 </p>
 
+
+<%= form_with model:@plan, url: activity_plan_path(@activity), method: :patch, local: true do |form|%>
+  <%= form.check_box :done_flg%>
+  <%= form.submit '完了' %>
+<% end%>
+
 <%= link_to 'Edit', edit_activity_plan_path(@activity) %> |
 <%= link_to 'Delete', activity_plan_path(@activity), method: :delete, data:{confirm: 'Are you sure?'} %> |
 
