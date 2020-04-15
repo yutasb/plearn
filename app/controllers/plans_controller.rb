@@ -13,14 +13,13 @@ class PlansController < ApplicationController
 
   def new
     @plan = Plan.new
-    @plans = current_user.id
   end
 
   def create
-    @activity = Activity.find(params[:activity_id])
-    @plan = current_user.plans.new(plan_params)
+    activity = current_user.activities.find_by(id:params[:activity_id])
+    @plan = Plan.new(plan_params.merge(user_id: current_user.id, activity_id: activity.id))
     if @plan.save
-      redirect_to activity_path(@activity), notice: '登録しました'
+      redirect_to activity_path(activity.id), notice: '登録しました'
     else
       flash.now[:alert] = 'タイトルと内容を入力してください'
       render :new
