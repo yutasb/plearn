@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Activity < ApplicationRecord
+  validates :title, presence: true
+  
   has_many :plans
   belongs_to :user
 
@@ -16,5 +18,5 @@ class Activity < ApplicationRecord
     plans.find_by(done_flg: true)
   end
 
-  validates :title, presence: true
+  
 end
