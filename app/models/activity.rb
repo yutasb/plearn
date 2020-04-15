@@ -6,6 +6,8 @@ class Activity < ApplicationRecord
   has_many :plans
   belongs_to :user
 
+  default_scope -> { order(updated_at: :desc) }
+
   def self.search(search)
     if search
       where(['title LIKE ?', "%#{search}%"])
