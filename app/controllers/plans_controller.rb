@@ -13,6 +13,7 @@ class PlansController < ApplicationController
 
   def new
     @plan = Plan.new
+    @activity = Plan.find_by(activity_id: params[:id])
   end
 
   def create

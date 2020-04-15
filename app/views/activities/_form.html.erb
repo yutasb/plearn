@@ -1,16 +1,16 @@
+<div class='container'>
 <%= form_with(model: @activity, local: true) do |form| %>
 
 
-  <div class="title">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="title mb40">
+    <%= form.label :title, class:'formLabel' %>
+    <%= form.text_field :title, class:'form-control formTextField' %>
   </div>
 <br>
-  <div class="submit">
-    <%= form.submit  class: 'btn btn-warning' %>
+  <div class="submit center">
+    <%= form.submit  class: 'btn btn-primary' %>
   </div>
 
 <% end %>
 
-
-
+</div>

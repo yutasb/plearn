@@ -1,4 +1,4 @@
-
+<div class='container'>
 <%= form_with model: @plan, url: activity_plans_path, local: true do |form| %>
 <% if @plan.errors.any? %>
     <div id='error_explanation'>
@@ -11,23 +11,24 @@
 <% end %>
 
 
-  <div class="title">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="title mb40 form-group">
+    <%= form.label :title, class:'formLabel' %>
+    <%= form.text_field :title, class:'form-control formTextField' %>
   </div>
 
-    <div class="time">
-    <%= form.label :start_time %>
-    <%= form.datetime_select :start_time %>
+    <div class="time mb40">
+    <%= form.label :start_time, class:'formLabel' %>
+    <%= form.date_field :start_time, class:'form-control formTextField' %>
   </div>
 
-  <div class="content">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
+  <div class="content mb40 form-group">
+    <%= form.label :content, class:'formLabel' %>
+    <%= form.text_area :content, size: "10x8", class:'form-control w50 positionCenter' %>
   </div>
   
-  <div class="submit">
+  <div class="submit center">
     <%= form.submit '登録する',  class: 'btn btn-primary' %>
   </div>
 
 <% end %>
+</div>
