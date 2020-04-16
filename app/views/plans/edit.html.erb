@@ -2,39 +2,40 @@
 <div class='back'>
     <%= link_to '戻る', activity_path(@activity)%>
 </div>
-<h1>プラン編集</h1>
 
-<%= form_with model: @plan, url: activity_plan_path, method: :patch, local: true do |form| %>
-<% if @plan.errors.any? %>
-    <div id='error_explanation'>
-        <ul>
-            <% @plan.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-            <% end %>
-        </ul>
+<h1 class='container'>プラン編集</h1>
+
+<div class='container'>
+  <%= form_with model: @plan, url: activity_plan_path, method: :patch, local: true do |form| %>
+    <% if @plan.errors.any? %>
+        <div id='error_explanation'>
+            <ul>
+                <% @plan.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+
+    <div class="title mb40 form-group">
+      <%= form.label :title, class:'formLabel' %>
+      <%= form.text_field :title, class:'form-control formTextField' %>
     </div>
-<% end %>
 
+    <div class="time mb40">
+      <%= form.label :start_time, class:'formLabel' %>
+      <%= form.date_field :start_time, class:'form-control formTextField' %>
+    </div>
 
-  <div class="title">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-    <div class="time">
-    <%= form.label :start_time %>
-    <%= form.datetime_select :start_time %>
-  </div>
-
-  <div class="content">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
-  
-  <div class="submit">
+    <div class="content mb40 form-group">
+      <%= form.label :content, class:'formLabel' %>
+      <%= form.text_area :content, size: "10x8", class:'form-control w50 positionCenter' %>
+    </div>
+    
+    <div class="submit center">
       <%= form.submit  class: 'btn btn-warning' %>
-  </div>
+    </div>
 
-<% end %>
-<br>
-<%= link_to 'Back', activity_path %>
+  <% end %>
+</div>
