@@ -1,3 +1,7 @@
+
+<div class='back'>
+    <%= link_to '戻る', activity_path(@activity)%>
+</div>
 <h1>プラン編集</h1>
 
 <%= form_with model: @plan, url: activity_plan_path, method: :patch, local: true do |form| %>
