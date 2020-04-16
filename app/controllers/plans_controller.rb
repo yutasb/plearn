@@ -13,7 +13,10 @@ class PlansController < ApplicationController
 
   def new
     @plan = Plan.new
-    @activity = Plan.find_by(activity_id: params[:id])
+    @activity = Activity.find(params[:activity_id])
+
+    
+
   end
 
   def create
@@ -36,6 +39,7 @@ class PlansController < ApplicationController
 
   def edit
     @plan = current_user.plans.find(params[:id])
+    @activity = Activity.find(params[:activity_id])
   end
 
   def update

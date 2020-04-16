@@ -3,10 +3,16 @@
 </div>
 
 
-    <h1 class='container'>新規登録</h1>
+<div class='back'>
+    <%= link_to '戻る', activity_path(@activity)%>
+</div>
+
+    <h1>新規登録</h1>
+
 
     <%= render "form", plan: @plan, activity:@activity%>
 
     <br>
     
+
 
