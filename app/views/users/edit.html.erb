@@ -1,22 +1,25 @@
-  <h1>プロフィール編集</h1>
-  <%= link_to '戻る', activities_path%>
+<div class='back'><%= link_to '戻る', activities_path%></div>
+
+  <div class='container'>
+  <h1 class='container'>プロフィール編集</h1>
+  
   <%= form_with(model: @user, url: users_edit_path, local: true) do |form| %>
 
-
-  <div class="name">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: 'form-control' %>
+  <div class="name mb40 form-group">
+    <%= form.label :name, class:'formLabel' %>
+    <%= form.text_field :name, class: 'form-control formTextField' %>
   </div>
 
   <div class="email">
-    <%= form.label :email %>
-    <%= form.text_field :email, class: 'form-control' %>
+    <%= form.label :email, class:'formLabel' %>
+    <%= form.text_field :email, class: 'form-control formTextField' %>
   </div>
 
 
-　<div class="submit">
+　<div class="submit center">
     <%= form.submit  class: 'btn btn-warning' %>
   </div>
 
 
 <% end%>
+</div>

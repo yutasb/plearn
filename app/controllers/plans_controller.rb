@@ -16,6 +16,7 @@ class PlansController < ApplicationController
     @activity = Activity.find(params[:activity_id])
 
     
+
   end
 
   def create

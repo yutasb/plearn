@@ -1,28 +1,40 @@
 
+<div class='container'>
+
+<div class='back'>
+<%= link_to 'Back', activity_path(@activity) %>
+</div>
+
+<div class=''>
+  <strong class='formLabel'>タイトル</strong>
+  <div class='formTextField center fs30'><%= @plan.title%></div>
+</div>
+
+<div>
+  <strong class='formLabel'>時間</strong>
+  <div class='formTextField center fs30'><%= @plan.start_time.strftime("%Y-%m-%d") %></div>
+</div>
 
 <p>
-  <strong>タイトル</strong>
-  <%= @plan.title %>
+  <strong class='formLabel'>内容</strong>
+  <div class='formTextField center fs30'><%= @plan.content %></div>
 </p>
 
-<p>
-  <strong>時間</strong>
-  <%= @plan.start_time.strftime("%Y-%m-%d %H:%M") %>
-</p>
 
-<p>
-  <strong>内容</strong>
-  <%= @plan.content %>
-</p>
+
+<div class='center'>
+
 
 
 <%= form_with model:@plan, url: activity_plan_path(@activity), method: :patch, local: true do |form|%>
-  <%= form.check_box :done_flg%>
-  <%= form.submit '完了' %>
+  <%= form.check_box :done_flg, class:'checkbox'%>
+  <%= form.label :done_flg, class:'label'%>
+  <%= form.submit '完了', class:'btn btn-success mb40' %>
 <% end%>
 
-<%= link_to 'Edit', edit_activity_plan_path(@activity) %> |
-<%= link_to 'Delete', activity_plan_path(@activity), method: :delete, data:{confirm: 'Are you sure?'} %> |
 
 
-<%= link_to 'Back', activity_path(@activity) %>
+
+<%= link_to 'Edit', edit_activity_plan_path(@activity), class:'btn btn-warning' %> 
+<%= link_to 'Delete', activity_plan_path(@activity), method: :delete, class:'btn btn-danger', data:{confirm: 'Are you sure?'} %> 
+</div>
