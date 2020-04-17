@@ -62,14 +62,14 @@ describe 'タスク管理機能', type: :system do
       end
     end
 
-    context '新規作成画面でタイトルを入力しなかったとき' do
-      let(:task_name) { '' }
+    # context '新規作成画面でタイトルを入力しなかったとき' do
+    #   let(:task_name) { '' }
 
-      it 'エラーとなる' do
-        within '#error_explanation' do
-          expect(page).to have_content "Title can't be blank"
-        end
-      end
-    end
+    #   it 'エラーとなる' do
+    #     within '#error_explanation' do
+    #       expect(page).to have_content "Title can't be blank"
+    #     end
+    #   end
+    # end
   end
 end
