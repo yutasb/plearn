@@ -2,7 +2,8 @@
 
 class Activity < ApplicationRecord
   validates :title, presence: true
-  
+  validates :title, uniqueness: {scope: :user_id}
+
   has_many :plans
   belongs_to :user
 
