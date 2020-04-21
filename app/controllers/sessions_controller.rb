@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to activities_path, notice: 'ログインしました'
     else
+      flash.now[:alert] = 'メールアドレスかパスワードが正しくありません'
       render 'new'
     end
   end
