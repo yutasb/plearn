@@ -10,13 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_12_130835) do
+ActiveRecord::Schema.define(version: 2020_04_21_064544) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "activities", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
@@ -26,8 +29,8 @@ ActiveRecord::Schema.define(version: 2020_04_12_130835) do
     t.datetime "start_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
-    t.integer "activity_id"
+    t.bigint "user_id"
+    t.bigint "activity_id"
     t.boolean "done_flg", default: false, null: false
     t.index ["activity_id"], name: "index_plans_on_activity_id"
     t.index ["user_id"], name: "index_plans_on_user_id"
@@ -42,4 +45,5 @@ ActiveRecord::Schema.define(version: 2020_04_12_130835) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "activities", "users"
 end
