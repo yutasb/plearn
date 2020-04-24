@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_12_130835) do
+ActiveRecord::Schema.define(version: 2020_04_24_094843) do
 
   create_table "activities", force: :cascade do |t|
     t.string "title"
@@ -31,6 +31,11 @@ ActiveRecord::Schema.define(version: 2020_04_12_130835) do
     t.boolean "done_flg", default: false, null: false
     t.index ["activity_id"], name: "index_plans_on_activity_id"
     t.index ["user_id"], name: "index_plans_on_user_id"
+  end
+
+  create_table "sessions", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
