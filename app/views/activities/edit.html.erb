@@ -4,7 +4,28 @@
 
 <h1>編集</h1>
 
-<%= render 'form', activity: @activity%>
+<%= form_with(model: @activity, method: :put, local: true) do |form| %>
+    <% if @activity.errors.any? %>
+        <div id='error_explanation'>
+            <ul>
+                <% @activity.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+  <div class="title mb40">
+    <%= form.label :title, class:'formLabel' %>
+    <%= form.text_field :title, class:'form-control formTextField', autofocus: true %>
+  </div>
+<br>
+  <div class="submit center">
+    <%= form.submit  class: 'btn btn-primary' %>
+  </div>
+
+<% end %>
+
 <br>
 <div class='center'>
     <%= link_to '削除する', activity_path, method: :delete, data:{confirm: '削除してよろしいですか？'}, class: 'btn btn-danger'%>

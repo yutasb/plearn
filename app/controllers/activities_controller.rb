@@ -16,7 +16,6 @@ class ActivitiesController < ApplicationController
 
   def new
     @activity = Activity.new
-    
   end
 
   def create
@@ -46,6 +45,7 @@ class ActivitiesController < ApplicationController
   def destroy
     @activity = Activity.find(params[:id])
     @activity.destroy
+
     redirect_to activities_path, notice: '削除しました'
   end
 
