@@ -15,26 +15,30 @@ RSpec.describe "Activities", type: :request do
     end
   end
 
-  # describe "activities #create" do
-  #   it 'Activityの新規登録が完了すること'
-  #     post activities_path
-  #     expect(response.status).to eq(200)
-  # end
+    #   describe "activities #create" do
+    #     it 'Activityの新規登録が完了すること' do
+    #       post activities_path
+    #       expect(response.status).to eq(200)
+    #     end
+    #   end
 
-  # describe "activities #index" do
-  #   it 'Activityの一覧画面が表示されること' do
-  #     get activities_path
-  #     expect(response.status).to eq(200)
+    # describe "activities #index" do
+    #   it 'Activityの一覧画面が表示されること' do
+    #     user = @user
+    #     activity = @activity1
+    #     id = activity.id
+    #     get activities_path
+    #     expect(response.status).to eq(200)
+    #   end
+    # end
+
+  # describe "activities #show" do
+  #   it 'Activityの詳細画面（カレンダー画面）が表示されること' do
+  #     activity = @activity1
+  #     get activity_path activity.id
+  #     expect(response).to eq(200)
   #   end
   # end
-
-  describe "activities #show" do
-    it 'Activityの詳細画面（カレンダー画面）が表示されること' do
-      activity = @activity1
-      get activity_path activity.id
-      expect(response).to eq(200)
-    end
-  end
 
   describe "activities #edit" do
       it 'Actvivityの編集画面が表示されること' do
@@ -50,7 +54,7 @@ RSpec.describe "Activities", type: :request do
       end
   end
 
-  describe "activities #update" do
+  # describe "activities #update" do
       ###############################
       ##urlが/activities.idという形になっており、methodがpostになっている。なぞ。
       #################################
@@ -64,7 +68,7 @@ RSpec.describe "Activities", type: :request do
 
       # it "Activityのタイトルが更新されていること" do end
 
-  end
+  # end
 
   describe "activities #destroy" do
     it "リクエストが成功すること" do
