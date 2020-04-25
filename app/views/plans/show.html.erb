@@ -17,7 +17,7 @@
 
 <p>
   <strong class='formLabel'>内容</strong>
-  <div class='formTextField center fs30'><%= simple_format(@plan.content) %></div>
+  <div class='formTextField center fs30'><%= auto_link(simple_format(@plan.content),html: {target: '_blank'}) %></div>
 </p>
 
 
