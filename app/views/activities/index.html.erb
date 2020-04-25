@@ -7,6 +7,7 @@
 <%= form_with  method: :get, local: true do |form| %>
   <%= form.text_field :search %>
   <%= form.submit '検索する', class:'btn btn-primary'%>
+  <%# ransackのgemを使えば楽に実装できる %>
 <% end %>
 </div>
 <div class="card mt40 w50 mcenter">
@@ -14,10 +15,10 @@
   <ul class="list-group list-group-flush center">
   <% @activities.each do |activity|%>
     <li class="list-group-item">
-    
+
         <%= link_to "#{activity.title}", activity_path(activity), class:'center fs20' %> 
         <%= link_to '編集', edit_activity_path(activity), class:'btn btn-warning w80' %>
-        
+
     </li>
     <% end%>
   </ul>
