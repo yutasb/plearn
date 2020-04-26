@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    models:
+      attributes:
+        activity:
+          Title: タイトル
+          Submit: 登録する
