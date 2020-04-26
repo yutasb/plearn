@@ -3,15 +3,14 @@
 class ActivitiesController < ApplicationController
   def index
     @activities = Activity.where(user_id: current_user.id)
-    .search(params[:search])
-    .page(params[:page])
-    .per(5)
+                          .search(params[:search])
+                          .page(params[:page])
+                          .per(5)
   end
 
   def show
     @plans = current_user.plans.where(activity_id: params[:id])
     @activity = Activity.find(params[:id])
-
   end
 
   def new
@@ -21,6 +20,7 @@ class ActivitiesController < ApplicationController
   def create
     @activity = current_user.activities.new(activity_params)
     if @activity.save
+      # logger.debug "Activity: #{@activity.attributes.inspect}"
       redirect_to activities_path, notice: '登録しました'
     else
       flash.now[:alert] = 'タイトルを入力してください'
