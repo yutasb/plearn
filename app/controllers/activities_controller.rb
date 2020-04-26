@@ -21,6 +21,7 @@ class ActivitiesController < ApplicationController
     @activity = current_user.activities.new(activity_params)
     if @activity.save
       # logger.debug "Activity: #{@activity.attributes.inspect}"
+      ActivityMailer.creation_email(@activity).deliver_now
       redirect_to activities_path, notice: '登録しました'
     else
       flash.now[:alert] = 'タイトルを入力してください'
