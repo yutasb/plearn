@@ -42,6 +42,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'spring-commands-rspec'
+  gem 'erb_lint', require: false # ERB Linter tool
 end
 
 group :test do

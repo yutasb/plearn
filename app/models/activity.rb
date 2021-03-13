@@ -2,7 +2,7 @@
 
 class Activity < ApplicationRecord
   validates :title, presence: true
-  validates :title, uniqueness: {scope: :user_id}
+  validates :title, uniqueness: { scope: :user_id }
 
   has_many :plans
   belongs_to :user
@@ -17,9 +17,7 @@ class Activity < ApplicationRecord
     end
   end
 
-  def done_plan(plan)
+  def done_plan(_plan)
     plans.find_by(done_flg: true)
   end
-
-  
 end

@@ -17,7 +17,7 @@ class PlansController < ApplicationController
   end
 
   def create
-    activity = current_user.activities.find_by(id:params[:activity_id])
+    activity = current_user.activities.find_by(id: params[:activity_id])
     @plan = Plan.new(plan_params.merge(user_id: current_user.id, activity_id: activity.id))
     if @plan.save
       redirect_to activity_path(activity.id), notice: '登録しました'
@@ -52,7 +52,6 @@ class PlansController < ApplicationController
   private
 
   def plan_params
-    params.require(:plan).permit(:title, :content, :start_time, :activity_id,:done_flg)
+    params.require(:plan).permit(:title, :content, :start_time, :activity_id, :done_flg)
   end
 end
-

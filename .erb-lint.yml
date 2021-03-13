@@ -1,0 +1,10 @@
+glob: "**/*.{html,text,js}{+*,}.erb"
+linters:
+  DeprecatedClasses:
+    enabled: true
+    exclude:
+      - 'app/views/activities/**'
+    addendum: "See UX wiki for help."
+    rule_set:
+      - deprecated: ['badge[-_\w]*']
+        suggestion: "Use the ui_badge() component instead."
